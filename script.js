@@ -1,17 +1,24 @@
 let lifeNo = parseInt(document.getElementById('life-no').innerHTML);
-let wordsList = ['MATEMATICA', 'AFARA', 'BUCURIE', 'INVATARE', 'PROGRAMARE', 'INSPIRATIE'];
-let randomWord = wordsList[Math.floor(Math.random() * (6 - 0) + 0)];
+let wordsList = ['MATEMATICA', 'AFARA', 'BUCURIE', 'INVATARE', 'PROGRAMARE', 
+    'INSPIRATIE', 'PRIETENIE', 'APA', 'BIBLIOTECA'];
 let myWord;
 let updatedWord = [];
 
-function wordToFind() {
+function generateRandomWord() {
+    let randomWord = wordsList[Math.floor(Math.random() * (6 - 0) + 0)];
     myWord = randomWord.split('');
+    document.getElementById('life-no').innerHTML = 7;
+}
+
+function wordToFind() {
+    generateRandomWord();
     for (let i = 0; i < myWord.length; ++i) {
         updatedWord[i] = '_';
         document.getElementById('word-to-find').innerHTML += `${updatedWord[i]}`;
     }
+    updateWordToFind();
+    document.getElementById('win_loose').innerHTML = '';
 }
-wordToFind();
 
 function chooseLetter() {
     let letterToSearch = document.getElementById('letter-to-search').value.toUpperCase();
