@@ -5,9 +5,10 @@ let myWord;
 let updatedWord = [];
 
 function generateRandomWord() {
-    let randomWord = wordsList[Math.floor(Math.random() * (6 - 0) + 0)];
+    let randomWord = wordsList[Math.floor(Math.random() * 10)];
     myWord = randomWord.split('');
     document.getElementById('life-no').innerHTML = 7;
+    console.log(randomWord);
 }
 
 function wordToFind() {
